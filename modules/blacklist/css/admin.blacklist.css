@@ -1,0 +1,9 @@
+#swrBlacklistTbl_type_label.ui-state-hover .s-ico {
+	display: none !important;
+}
+#jqgh_swrBlacklistTbl_type_label {
+	height: auto;
+}
+#jqgh_swrBlacklistTbl_type_label #swrBlacklistTypeSel {
+	font-size: 1em;
+}

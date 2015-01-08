@@ -1,0 +1,9 @@
+#swrFilesIssuesTbl_type_label.ui-state-hover .s-ico {
+	display: none !important;
+}
+#jqgh_swrFilesIssuesTbl_type_label {
+	height: auto;
+}
+#jqgh_swrFilesIssuesTbl_type_label #swrFilesIssuesTypeSel {
+	font-size: 1em;
+}
