@@ -136,7 +136,7 @@ jQuery(document).ready(function(){
 	swrCheckBlockedCountriesCnt();
 	// Blocked browsers msg check
 	swrCheckBlockedBrowserCnt();
-	//jQuery('.chosen').chosen();
+	jQuery('.chosen').chosen();
 });
 function swrBlacklistInitAddByBrowserDialog() {
 	var $container = jQuery('#swrBlacklistAddByBrowserDlg').dialog({
