@@ -3,15 +3,15 @@ Contributors: supsystic.com
 Donate link: http://supsystic.com
 Tags: security, wordpress security, wordpress security plugin, security plugin, anti virus, antivirus, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, google safe browsing, hack, hackers, hacking, heart bleed, heartbleed, heartbleed vulnerability, htaccess, HTTP log, infrastructure security, injection, lock, log, logging, login, login alerts, login security, malware, maximum login security, openssl vulnerability, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, reverse proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, speed, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
 Tested up to: 4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
-Secure website and defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist and more functions
+Defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist, Country blocking, captcha on login and more
 
 == Description ==
 
 Reliable protection is simple with Security by Supsystic. Security plugin allows minimizing the risk of unauthorized access to your website, admin area and files. 
 
-Security by Supsystic performs constant monitoring of suspicious activity and is capable of promptly responding to secure alerts. Convenient setting manager will explain the necessity of each secure feature, allowing selecting the security level. Country blocking, captcha on login, schedule scans all these security options available for free.
+[WordPress Security Plugin](http://supsystic.com "WordPress Security Plugin") by Supsystic performs constant monitoring of suspicious activity and is capable of promptly responding to secure alerts. Convenient setting manager will explain the necessity of each secure feature, allowing selecting the security level. Country blocking, captcha on login, schedule scans all these security options available for free.
 
 The ultimate security of your website is obtained through a combination of features:
 
@@ -32,7 +32,7 @@ The ultimate security of your website is obtained through a combination of featu
 
 = Scan (folders and files, data-bases for mailware and spyware) =
 
-All data is stored in files and data bases. Thats why after protecting the access �door� and setting Login Security it is important to think about the �back door� as well, including database files access and scanning the files for security backdor and mailware. Today WordPress is the most common CMS, which means that it is exposed to most attacks and threats. 
+All data is stored in files and data bases. Thats why after protecting the access door and setting Login Security it is important to think about the back door as well, including database files access and scanning the files for security backdor and mailware. Today WordPress is the most common CMS, which means that it is exposed to most attacks and threats. 
 
 = Firewall and Black Lists =
 
@@ -53,13 +53,17 @@ Statistic analyzes various website requests and helps determine those that repre
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. Visit the Main Page of the plugin and check the most important secure alerts and security notifications
 
-NOTE: Don't forget to using backup as the one of the most effective way to defence your website
+NOTE: Dont forget to using backup as the one of the most effective way to defence your website
 
 == Screenshots ==
 
-1. Security by Supsystic - secure alerts and notifications page
+1. [Security by Supsystic](http://supsystic.com "WordPress Security Plugin") - secure alerts and notifications page
 
 == Changelog ==
+
+= 1.0.3 =
+ * Minor issues fix
+ * Small readme corrections
 
 = 1.0.2 =
 * Added tooltips with different security descriptions

@@ -1,8 +1,5 @@
 <div class="wrap">
     <div class="supsystic-plugin">
-        <?php /*?><header class="supsystic-plugin">
-            <h1><?php echo SWR_WP_PLUGIN_NAME?></h1>
-        </header><?php */?>
 		<?php echo $this->breadcrumbs?>
         <section class="supsystic-content">
             <nav class="supsystic-navigation supsystic-sticky">
