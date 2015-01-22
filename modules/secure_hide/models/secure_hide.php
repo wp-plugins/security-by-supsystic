@@ -1,11 +1,10 @@
 <?php
 class secure_hideModelSwr extends modelSwr {
 	public function afterOptionsChange($prevOptsModel, $optsModel, $submitData) {
+		global $wpdb;		
 		// WordPress tables pref. change
 		$prevOpt = $prevOptsModel->get('change_standard_db_pref_enb');
 		$currOpt = $optsModel->get('change_standard_db_pref_enb');
-		global $wpdb;
-
 		if($currOpt && !$prevOpt) {
 			$newPref = 'wp_'. strtolower(utilsSwr::getRandStr(4)). '_';
 			$optsModel->save('old_db_pref', $wpdb->prefix);
@@ -15,6 +14,13 @@ class secure_hideModelSwr extends modelSwr {
 			$wpdb->prefix = $newPref;
 		} elseif($prevOpt && !$currOpt) {
 			$this->changeDbPref($optsModel->get('new_db_pref'), $optsModel->get('old_db_pref'));
+		}
+		$prevOpt = $prevOptsModel->get('hide_server_info_enb');
+		$currOpt = $optsModel->get('hide_server_info_enb');
+		if($currOpt && !$prevOpt) {
+			$this->updateHtaccess_hide_server_info_enb();
+		} elseif($prevOpt && !$currOpt) {
+			$this->removeHtaccess_hide_server_info_enb();
 		}
 		return !$this->haveErrors();
 	}
@@ -36,5 +42,18 @@ class secure_hideModelSwr extends modelSwr {
 		} else
 			$this->pushError (sprintf(__('Your %s file is not writable - can\'t change database prefix', SWR_LANG_CODE), $configFilePath));
 		return $configFilePath;
+	}
+	public function updateHtaccess_hide_server_info_enb() {
+		$xFrameRules = array(
+			'ServerSignature Off',
+		);
+		if(!frameSwr::_()->getModule('htaccess')->savePart('hide_server_info_enb', $xFrameRules)) {
+			$this->pushError(frameSwr::_()->getModule('htaccess')->getErrors());
+		}
+	}
+	public function removeHtaccess_hide_server_info_enb() {
+		if(!frameSwr::_()->getModule('htaccess')->removePart('hide_server_info_enb')) {
+			$this->pushError(frameSwr::_()->getModule('htaccess')->getErrors());
+		}
 	}
 }

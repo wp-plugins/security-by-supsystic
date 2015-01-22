@@ -38,7 +38,7 @@
     define('SWR_DATE_FORMAT_JS', 'mm/dd/yy');
     define('SWR_DATE_FORMAT_CONVERT', '%m/%d/%Y');
     define('SWR_WPDB_PREF', $wpdb->prefix);
-    define('SWR_DB_PREF', 'swr_');    /*TheOneEcommerce*/
+    define('SWR_DB_PREF', 'swr_');
     define('SWR_MAIN_FILE', 'swr.php');
 
     define('SWR_DEFAULT', 'default');
@@ -47,7 +47,7 @@
 	define('SWR_EOL', "\n");    
     
     define('SWR_PLUGIN_INSTALLED', true);
-    define('SWR_VERSION', '1.0.3');
+    define('SWR_VERSION', '1.0.4');
     define('SWR_USER', 'user');
     
     define('SWR_CLASS_PREFIX', 'swrc');     

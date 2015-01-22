@@ -305,18 +305,6 @@ class utilsSwr {
     static public function isTablet() {
         return mobileDetect::_()->isTablet();
     }
-    static public function getWidgetCategory($callback) {
-        $categoryToId = array(
-            'products' => array('toealsopurchasedwidget', 'toebestsellerswidget', 'toefpwidget', 'toemostviewedwidget', 'toerecentproductswidget', 'toespwidget'),
-            'shopping' => array('toebcwidget', 'toecurrencywidget', 'toeshoppingcartwidget'),
-            'additional' => array('toebrcwidget', 'toecommentswidget', 'toesearchwidget', 'toesliderwidget', 'toetwitterwidget'),
-        );
-        foreach($categoryToId as $cat => $ids) {
-            if(in_array($callback, $ids))
-                return $cat;
-        }
-        return false;
-    }
     static public function getUploadsDir() {
         $uploadDir = wp_upload_dir();
         return $uploadDir['basedir'];

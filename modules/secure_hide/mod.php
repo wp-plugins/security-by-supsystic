@@ -27,6 +27,8 @@ class secure_hideSwr extends moduleSwr {
 				'new_db_pref' => array('label' => __('New database prefix', SWR_LANG_CODE)),
 				
 				'rand_wp_version_enb' => array('label' => __('Display random WordPress version', SWR_LANG_CODE), 'weight' => 20, 'html' => 'checkboxHiddenVal', 'desc' => __('With this option you&#39;ll easily confuse the hacker. If you have an old WordPress version and you can’t update, upgrading to a newer version will save you from the attacks used for the older versions.', SWR_LANG_CODE)),
+				
+				'hide_server_info_enb' => array('label' => __('Hide server info', SWR_LANG_CODE), 'weight' => 20, 'html' => 'checkboxHiddenVal',  'htaccessChange' => true, 'desc' => __('You can simply hide server info in some of your server responces, that make hasker confused.', SWR_LANG_CODE)),
 			),
 		);
 		return $opts;

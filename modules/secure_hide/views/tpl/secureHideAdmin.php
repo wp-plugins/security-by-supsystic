@@ -34,7 +34,7 @@
 							<?php }?>
 						</th>
 						<td class="col-w-1perc">
-							<i class="fa fa-question supsystic-tooltip" title="<?php echo $opt['desc']?>"></i>
+							<i class="fa fa-question supsystic-tooltip" title="<?php echo esc_html($opt['desc'])?>"></i>
 						</td>
 						<td class="col-w-1perc">
 							<?php echo htmlSwr::$htmlType('opt_values['. $optKey. ']', array('value' => $opt['value'], 'attrs' => 'data-optkey="'. $optKey. '"'))?>

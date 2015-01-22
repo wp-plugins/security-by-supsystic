@@ -160,7 +160,6 @@ class installerSwr {
 				`date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 				PRIMARY KEY (`id`)
 			  ) DEFAULT CHARSET=utf8;"));
-			  self::_insertCountries();
 		}
 		installerDbUpdaterSwr::runUpdate();
 		if($current_version && !self::$_firstTimeActivated) {
