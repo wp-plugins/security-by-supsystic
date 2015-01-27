@@ -131,7 +131,7 @@ class fieldAdapterSwr {
             if(empty(self::$countries))
                 self::$countries = self::getCachedCountries();
             if($notSelected) {
-				$options[ $notSelected ][0] = is_bool($notSelected) ? __('Not selected', SWR_LANG_CODE) : langSwr::_($notSelected);
+				$options[ $notSelected ][0] = is_bool($notSelected) ? __('Not selected', SWR_LANG_CODE) : __($notSelected);
 			}
             foreach(self::$countries as $c) $options[ $notSelected ][$c['id']] = $c['name'];
         }
@@ -145,7 +145,7 @@ class fieldAdapterSwr {
                 self::$states = self::getCachedStates();
             if($notSelected) {
 				$notSelectedLabel = is_bool($notSelected) ? 'Not selected' : $notSelected;
-				$options[ $notSelected ][0] = array('name' => langSwr::_( $notSelectedLabel ), 'country_id' => NULL);
+				$options[ $notSelected ][0] = array('name' => __( $notSelectedLabel ), 'country_id' => NULL);
 			}
             foreach(self::$states as $s) $options[ $notSelected ][$s['id']] = $s;
         }
@@ -177,7 +177,7 @@ class fieldAdapterSwr {
         $output = '';
         if (!empty($params->attr)) {
             foreach ($params->attr as $key=>$value) {
-                $output .= langSwr::_($key).':<br />';
+                $output .= __($key).':<br />';
                 $output .= htmlSwr::text('params[attr]['.$key.']',array('value'=>$value)).'<br />';
             }
         } else {
@@ -202,7 +202,7 @@ class fieldAdapterSwr {
         if(!empty($categories)) {
             if(!is_array($field->value['categories']))
                     $field->value['categories'] = array();
-            $field->htmlParams['optionsSwr'][0] = in_array(0,$field->value['categories'])?__('Deselect All'):langSwr::_('Select All', SWR_LANG_CODE);
+            $field->htmlParams['optionsSwr'][0] = in_array(0,$field->value['categories'])?__('Deselect All'):__('Select All', SWR_LANG_CODE);
             foreach($categories as $c) {
                 $field->htmlParams['optionsSwr'][$c->term_taxonomy_id] = $c->cat_name;
             }
@@ -308,4 +308,3 @@ class fieldAdapterSwr {
 		);
 	}
 }
-?>

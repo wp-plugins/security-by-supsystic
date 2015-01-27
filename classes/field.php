@@ -475,9 +475,9 @@ class fieldSwr {
 						 $htmlParams = array_merge($htmlParams, $configOptions[$key]['htmlParams']);
 					 }
 				  // output label and html element
-					 $output .= '<label>'.langSwr::_($configOptions[$key]['label']);
+					 $output .= '<label>'.__($configOptions[$key]['label']);
 					 if ($configOptions[$key]['description'] != '') {
-						 $output .= '<a class="toeOptTip" tip="'.langSwr::_($configOptions[$key]['description']).'"></a>';
+						 $output .= '<a class="toeOptTip" tip="'.__($configOptions[$key]['description']).'"></a>';
 					 }
 					 $output .= '</label><br />';
 					 $output .= htmlSwr::$method($name,$htmlParams).'<br />';

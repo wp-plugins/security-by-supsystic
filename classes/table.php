@@ -482,4 +482,3 @@ abstract class tableSwr {
         return htmlspecialchars($val);
     }
 }
-?>

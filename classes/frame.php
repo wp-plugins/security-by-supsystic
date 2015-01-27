@@ -98,7 +98,6 @@ class frameSwr {
     }
     public function init() {
         //$startTime = microtime(true);
-        langSwr::init();
         reqSwr::init();
         $this->_extractTables();
         $this->_extractModules();
@@ -398,5 +397,11 @@ class frameSwr {
 			return true;
 		}
 		return false;
+	}
+	public function getExecAction() {
+		return $this->_action;
+	}
+	public function getExecMod() {
+		return $this->_mod;
 	}
 }

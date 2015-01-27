@@ -187,7 +187,7 @@ class htmlSwr {
         $out = '';
         if(strpos($params['url'], 'pl='. SWR_CODE) === false)
 			$params['url'] = uriSwr::_(array('baseUrl' => $params['url'], 'pl' => SWR_CODE));
-        $out .= self::button(array('value' => langSwr::_( empty($params['buttonName']) ? 'Upload' :  $params['buttonName'] ), 'attrs' => 'id="toeUploadbut_'.$name.'" class="button button-large"'));
+        $out .= self::button(array('value' => __( empty($params['buttonName']) ? 'Upload' :  $params['buttonName'] ), 'attrs' => 'id="toeUploadbut_'.$name.'" class="button button-large"'));
         $display = (empty($params['value']) ? 'style="display: none;"' : '');
         if(isset($params['preview']) && $params['preview'])
             $out .= self::img($params['value'], 0, array('attrs' => 'id="prev_'.$name.'" '.$display.' class="previewpicture"'));
@@ -405,7 +405,7 @@ class htmlSwr {
                     $paramsForText = array(
                         'value' => $value,
                     );
-                    $res .= langSwr::_($p['label']). htmlSwr::text($name. '['. $i. ']['. $key. ']', $paramsForText);
+                    $res .= __($p['label']). htmlSwr::text($name. '['. $i. ']['. $key. ']', $paramsForText);
                 }
                 $res .= $remove. '</div>';
                 $i++;

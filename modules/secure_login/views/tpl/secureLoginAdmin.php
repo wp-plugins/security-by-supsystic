@@ -110,6 +110,15 @@
 								<?php _e('Allowed characters are a-z, 0-9, - and _', SWR_LANG_CODE)?>
 								<?php break;
 							}?>
+							<?php
+								if(isset($opt['add_sub_opts']) && !empty($opt['add_sub_opts'])) {
+									if(is_string($opt['add_sub_opts'])) {
+										echo $opt['add_sub_opts'];
+									} elseif(is_callable($opt['add_sub_opts'])) {
+										echo call_user_func_array($opt['add_sub_opts'], array($this->options));
+									}
+								}
+							?>
 							</div>
 						</td>
 					</tr>

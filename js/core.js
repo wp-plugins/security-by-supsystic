@@ -330,33 +330,6 @@ function toeSliderMove(event, ui) {
 function swrGetBookEditLink(id) {
 	return str_replace(SWR_DATA.bookEditUrlPattern, 'DYNAMIC_BOOK_ID', id);
 }
-jQuery(document).ready(function(){
-	jQuery('.supsystic-tooltip').tooltipster({
-		contentAsHTML: true
-	,	interactive: true
-	,	speed: 250
-	,	delay: 0
-	,	animation: 'swing'
-	,	position: 'top-left'
-	,	maxWidth: 450
-	,	functionReady: function(origin, tooltip) {
-			// Move tolltip from center of it's arrow - to right side, like on our design, position: 'top-right' option didn't work for me
-			/*var fromLeftSide = 20
-			,	width = tooltip.width();
-			if(width > fromLeftSide) {
-				var modeToLeft = (width / 2) - fromLeftSide
-				,	arrow = tooltip.find('.tooltipster-arrow span')
-				,	arrowWidth = 18;
-				tooltip.css({
-					'left': parseInt(tooltip.css('left')) + modeToLeft
-				});
-				arrow.css({
-					'left': -(width - fromLeftSide - arrowWidth)
-				});
-			}*/
-		}
-	});
-});
 /**
  * Add data to jqGrid object post params search
  * @param {object} param Search params to set

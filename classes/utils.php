@@ -550,4 +550,13 @@ class utilsSwr {
 			'Opera', 'Netscape',
 		);
 	}
+	static public function getSearchBotArray() {
+		return array('abachobot', 'acoon', 'aesop_com_spiderman', 'ah-ha.com crawler', 'appie', 'arachnoidea', 'architextspider', 'atomz', 'deepindex', 'esismartspider', 'ezresult', 'fast-webcrawler', 'fido', 'fluffy the spider', 'googlebot', 'gigabot', 'gulliver', 'gulper', 'henrythemiragorobot', 'ia_archiver', 'kit-fireball/2.0', 'lnspiderguy', 'lycos_spider_(t-rex)', 'mantraagent', 'msn', 'nationaldirectory-superspider', 'nazilla', 'openbot', 'openfind piranha,shark', 'scooter', 'scrubby', 'slurp.so/1.0', 'slurp/2.0j', 'slurp/2.0', 'slurp/3.0', 'tarantula', 'teoma_agent1', 'uk searcher spider', 'webcrawler', 'winona', 'zyborg', 'w3c_validator', 'wdg_validator');
+	}
+	static public function isSearchBot() {
+		if(isset($_SERVER['HTTP_USER_AGENT']) && in_array(strtolower($_SERVER['HTTP_USER_AGENT']), self::getSearchBotArray())) {
+			return true;
+		}
+		return false;
+	}
 }

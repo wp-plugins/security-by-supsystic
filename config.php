@@ -47,7 +47,7 @@
 	define('SWR_EOL', "\n");    
     
     define('SWR_PLUGIN_INSTALLED', true);
-    define('SWR_VERSION', '1.0.4');
+    define('SWR_VERSION', '1.0.5');
     define('SWR_USER', 'user');
     
     define('SWR_CLASS_PREFIX', 'swrc');     

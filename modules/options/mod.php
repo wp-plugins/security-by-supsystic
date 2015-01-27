@@ -95,13 +95,32 @@ class optionsSwr extends moduleSwr {
 				),
 			));
 			foreach($this->_options as $catKey => $cData) {
+				uasort( $this->_options[ $catKey ]['opts'], array($this, 'sortOptsClb') );
+			}
+			
+			// Not used for now
+			/*foreach($this->_options as $catKey => $cData) {
 				foreach($cData['opts'] as $optKey => $opt) {
 					$this->_optionsToCategoires[ $optKey ] = $catKey;
 				}
-			}
+			}*/
 			$this->getModel()->fillInValues( $this->_options );
 		}
 		return $this->_options;
+	}
+	public function sortOptsClb($a, $b) {
+		if(isset($a['weight']) && !isset($b['weight'])) {
+			return -1;
+		} elseif(!isset($a['weight']) && isset($b['weight'])) {
+			return 1;
+		} else {
+			if($a['weight'] > $b['weight']) {
+				return -1;
+			} elseif($a['weight'] < $b['weight']) {
+				return 1;
+			}
+		}
+		return 0;
 	}
 	public function getFullCat($cat) {
 		$this->getAll();

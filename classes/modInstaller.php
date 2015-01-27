@@ -32,13 +32,13 @@ class modInstallerSwr {
                         self::_installTables($module);
                         return true;
                     } else {
-                        errorsSwr::push(langSwr::_(array('Install', $module['code'], 'failed ['. mysql_error(). ']')), errorsSwr::MOD_INSTALL);
+                        errorsSwr::push(__(array('Install', $module['code'], 'failed ['. mysql_error(). ']')), errorsSwr::MOD_INSTALL);
                     }*/
                 } else {
-                    errorsSwr::push(langSwr::_(array('Move files for', $module['code'], 'failed')), errorsSwr::MOD_INSTALL);
+                    errorsSwr::push(__(array('Move files for', $module['code'], 'failed')), errorsSwr::MOD_INSTALL);
                 }
             } else
-                errorsSwr::push(langSwr::_(array($module['code'], 'is not plugin module')), errorsSwr::MOD_INSTALL);
+                errorsSwr::push(__(array($module['code'], 'is not plugin module')), errorsSwr::MOD_INSTALL);
         }
         return false;
     }
@@ -78,7 +78,7 @@ class modInstallerSwr {
                 errorsSwr::push(__('Can not create module directory. Try to set permission to '. SWR_MODULES_DIR. ' directory 755 or 777', SWR_LANG_CODE), errorsSwr::MOD_INSTALL);
         } else
             return true;
-            //errorsSwr::push(langSwr::_(array('Directory', $code, 'already exists')), errorsSwr::MOD_INSTALL);
+            //errorsSwr::push(__(array('Directory', $code, 'already exists')), errorsSwr::MOD_INSTALL);
         return false;
     }
     static private function _getPluginLocations() {
@@ -129,7 +129,7 @@ class modInstallerSwr {
                         self::activate($modDataArr);
                     } else {                                           //  if not - install it
                         if(!self::install($modDataArr, $locations['plugDir'])) {
-                            errorsSwr::push(langSwr::_(array('Install', $modDataArr['code'], 'failed')), errorsSwr::MOD_INSTALL);
+                            errorsSwr::push(__(array('Install', $modDataArr['code'], 'failed')), errorsSwr::MOD_INSTALL);
                         }
                     }
 					$modulesData[] = $modDataArr;
@@ -178,8 +178,7 @@ class modInstallerSwr {
 				if(strpos($siteUrl, 'http://localhost/') !== 0) {
 					foreach($checkPlugs as $plugName => $url) {
 						if($url != $siteUrl) {	// Registered url don't mach current
-							// Just email me about this
-							wp_mail('ukrainecmk@ukr.net', 'Plug was moved', 'Plug '. $plugName. ' was moved from '. $url. ' to '. $siteUrl);
+							// TODO: create some additional action in this case
 						}
 					}
 				}
@@ -270,7 +269,7 @@ class modInstallerSwr {
 		if(!isset($currentMessages[ $plugName ])) {
 			$pluginData = get_plugin_data($locations['plugMainFile']);
 			$newMessage = __('You need to activate', SWR_LANG_CODE);
-			$newMessage .= ' '. $pluginData['Name']. ' '. langSwr::_(array('plugin', 'before start usage.'));
+			$newMessage .= ' '. $pluginData['Name']. ' '. __(array('plugin', 'before start usage.'));
 			$newMessage .= ' '. __('Just click', SWR_LANG_CODE);
 			$newMessage .= ' <a href="#" onclick="toeShowModuleActivationPopupSwr(\''. $plugName. '\'); return false;" class="toePlugActivationNoteLink">'. __('here', SWR_LANG_CODE). '</a> ';
 			$newMessage .= __('and enter your activation code.', SWR_LANG_CODE);

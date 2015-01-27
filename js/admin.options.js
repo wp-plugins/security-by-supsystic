@@ -68,6 +68,17 @@ jQuery(document).ready(function(){
 			}
 		}).trigger('change');
 	}
+	// Tooltipster init
+	jQuery('.supsystic-tooltip').tooltipster({
+		contentAsHTML: true
+	,	interactive: true
+	,	speed: 250
+	,	delay: 0
+	,	animation: 'swing'
+	,	position: 'top-left'
+	,	maxWidth: 450
+	});
+
 	swrInitStickyItem();
 	swrInitCustomCheckRadio();
 	//swrInitCustomSelect();

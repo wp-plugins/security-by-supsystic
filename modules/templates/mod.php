@@ -4,7 +4,9 @@ class templatesSwr extends moduleSwr {
     public function init() {
         if (is_admin() && ($isAdminPlugOptsPage = frameSwr::_()->isAdminPlugOptsPage())) {
 			$this->loadCoreJs();
+			$this->loadAdminCoreJs();
 			$this->loadCoreCss();
+			$this->loadAdminCoreCss();
 			$this->loadChosenSelects();
 			frameSwr::_()->addScript('adminOptionsSwr', SWR_JS_PATH. 'admin.options.js', array(), false, true);
 			//add_action('admin_enqueue_scripts', array($this, 'loadMediaScripts'));
@@ -14,16 +16,17 @@ class templatesSwr extends moduleSwr {
 	public function loadMediaScripts() {
 		wp_enqueue_media();
 	}
-	public function loadCoreJs() {
-		frameSwr::_()->addScript('jquery');
+	public function loadAdminCoreJs() {
 		frameSwr::_()->addScript('jquery-ui-dialog');
-		
-		frameSwr::_()->addScript('commonSwr', SWR_JS_PATH. 'common.js');
-		frameSwr::_()->addScript('coreSwr', SWR_JS_PATH. 'core.js');
 		frameSwr::_()->addScript('tooltipster', SWR_JS_PATH. 'jquery.tooltipster.min.js');
 		frameSwr::_()->addScript('icheck', SWR_JS_PATH. 'icheck.min.js');
-		//frameSwr::_()->addScript('selecter', SWR_JS_PATH. 'jquery.fs.selecter.min.js');
-		
+	}
+	public function loadCoreJs() {
+		frameSwr::_()->addScript('jquery');
+
+		frameSwr::_()->addScript('commonSwr', SWR_JS_PATH. 'common.js');
+		frameSwr::_()->addScript('coreSwr', SWR_JS_PATH. 'core.js');
+
 		$ajaxurl = admin_url('admin-ajax.php');
 		$jsData = array(
 			'siteUrl'					=> SWR_SITE_URL,
@@ -32,7 +35,6 @@ class templatesSwr extends moduleSwr {
 			'loader'					=> SWR_LOADER_IMG, 
 			'close'						=> SWR_IMG_PATH. 'cross.gif', 
 			'ajaxurl'					=> $ajaxurl,
-			//'siteLang'					=> langSwr::getData(),
 			'options'					=> frameSwr::_()->getModule('options')->getAllowedPublicOptions(),
 			'SWR_CODE'					=> SWR_CODE,
 			'ball_loader'				=> SWR_IMG_PATH. 'ajax-loader-ball.gif',
@@ -43,25 +45,29 @@ class templatesSwr extends moduleSwr {
 		$jsData = dispatcherSwr::applyFilters('jsInitVariables', $jsData);
 		frameSwr::_()->addJSVar('coreSwr', 'SWR_DATA', $jsData);
 	}
-	public function loadCoreCss() {
-		$this->_styles = array(
-			'styleSwr'			=> array('path' => SWR_CSS_PATH. 'style.css', 'for' => 'admin'), 
-			'supsystic-uiSwr'	=> array('path' => SWR_CSS_PATH. 'supsystic-ui.css', 'for' => 'admin'), 
+	public function loadAdminCoreCss() {
+		$this->_addStylesArr(array(
 			'dashicons'			=> array('for' => 'admin'),
-			'bootstrap-alerts'	=> array('path' => SWR_CSS_PATH. 'bootstrap-alerts.css', 'for' => 'admin'),
 			'tooltipster'		=> array('path' => SWR_CSS_PATH. 'tooltipster.css', 'for' => 'admin'),
 			'icheck'			=> array('path' => SWR_CSS_PATH. 'jquery.icheck.css', 'for' => 'admin'),
-			//'uniform'			=> array('path' => SWR_CSS_PATH. 'uniform.default.css', 'for' => 'admin'),
-			//'selecter'			=> array('path' => SWR_CSS_PATH. 'jquery.fs.selecter.min.css', 'for' => 'admin'),
-		);
-		foreach($this->_styles as $s => $sInfo) {
+		));
+		$this->loadFontAwesome();
+	}
+	public function loadCoreCss() {
+		$this->_addStylesArr(array(
+			'styleSwr'			=> array('path' => SWR_CSS_PATH. 'style.css', 'for' => 'admin'), 
+			'supsystic-uiSwr'	=> array('path' => SWR_CSS_PATH. 'supsystic-ui.css', 'for' => 'admin'), 
+			'bootstrap-alerts'	=> array('path' => SWR_CSS_PATH. 'bootstrap-alerts.css', 'for' => 'admin'),
+		));
+	}
+	private function _addStylesArr( $addStyles ) {
+		foreach($addStyles as $s => $sInfo) {
 			if(!empty($sInfo['path'])) {
 				frameSwr::_()->addStyle($s, $sInfo['path']);
 			} else {
 				frameSwr::_()->addStyle($s);
 			}
 		}
-		$this->loadFontAwesome();
 	}
 	public function loadJqueryUi() {
 		frameSwr::_()->addStyle('jquery-ui', SWR_CSS_PATH. 'jquery-ui.min.css');

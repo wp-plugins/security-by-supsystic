@@ -184,7 +184,7 @@ abstract class moduleSwr extends baseObjectSwr {
 					);
 			}
 		}
-		errorsSwr::push(langSwr::_(array('Module', $this->_code, 'method', $name, 'undefined')), errorsSwr::FATAL);
+		errorsSwr::push(__(array('Module', $this->_code, 'method', $name, 'undefined')), errorsSwr::FATAL);
 	}*/
 	public function getModel($modelName = '') {
 		return $this->getController()->getModel($modelName);
