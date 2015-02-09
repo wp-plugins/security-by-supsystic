@@ -3,7 +3,7 @@ Contributors: supsystic.com
 Donate link: http://supsystic.com
 Tags: security, wordpress security, wordpress security plugin, security plugin, anti virus, antivirus, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, google safe browsing, hack, hackers, hacking, heart bleed, heartbleed, heartbleed vulnerability, htaccess, HTTP log, infrastructure security, injection, lock, log, logging, login, login alerts, login security, malware, maximum login security, openssl vulnerability, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, reverse proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, speed, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
 Tested up to: 4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 
 Defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist, Country blocking, captcha on login and more
 
@@ -48,10 +48,23 @@ Statistic analyzes various website requests and helps determine those that repre
 
 == Installation ==
 
-1. Upload the zip file with Security by Supsystic to the /wp-content/plugins/ directory
-2. Unzip
-3. Activate the plugin through the 'Plugins' menu in WordPress
-4. Visit the Main Page of the plugin and check the most important secure alerts and security notifications
+= First time Security by Supsystic user =
+ 
+Thank you for choosing Security by Supsystic! Open page of our plug-in admin panel WordPress and you will see eight menu items: "Main Page", "Login Security", "Scan file", "Firewall", "Blacklist", "Hide Me", "System" and "Statistics".
+You can start with the scan files - there is the ability to scan “Files and Folders permissions” and “UnAuthorize File changes”. For this you need simply click on the “Scan Now” button opposite the necessary option on the “Scan File” tab. After the scan is finished, you will see the scan result on the right from the button. If issues will be found, you'll see them at the bottom of the page and will be able to fix them. 
+On other tabs you can find a lot of options for protect your website, such as Capcha on login, Admin IP login protection, Hide server info, 404 Black list detection, Disalow user site on other domains in iframe and many others, which you can easily activate by clicking on the appropriate checkbox option. Don't forget to press the "Save" button. 
+It is also possible to monitor and analyze information, that may protect your website, on the Statistics tab; check your server mail functionality and see your system info on the System tab.
+
+= To install a plugin via FTP, you must =
+
+1. Download the plugin
+2. Unarchive the plugin
+3. Copy the folder with plugin
+4. Open ftp \wp-content\plugins\
+5. Paste the plug-ins folder in the folder
+6. Go to admin panel => open item "Plugins" => activate the plugin 
+
+
 
 NOTE: Dont forget to using backup as the one of the most effective way to defence your website
 
@@ -60,6 +73,12 @@ NOTE: Dont forget to using backup as the one of the most effective way to defenc
 1. [Security by Supsystic](http://supsystic.com "WordPress Security Plugin") - secure alerts and notifications page
 
 == Changelog ==
+
+= 1.0.6 =
+ * Added admin login statistics (IP, User ID, Email, Date)
+ * Core improvements
+ * Minor issues fix for DEBUG mode enabled
+ * Minor design issues fix (popup buttons color)
 
 = 1.0.5 =
  * Remove unused files - make plugin more lighter

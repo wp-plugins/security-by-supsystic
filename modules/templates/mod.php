@@ -40,7 +40,7 @@ class templatesSwr extends moduleSwr {
 			'ball_loader'				=> SWR_IMG_PATH. 'ajax-loader-ball.gif',
 			'ok_icon'					=> SWR_IMG_PATH. 'ok-icon.png',
 		);
-		$jsData['allCheckRegPlugs']	= modInstallerSwr::getCheckRegPlugs();
+		//$jsData['allCheckRegPlugs']	= modInstallerSwr::getCheckRegPlugs();
 
 		$jsData = dispatcherSwr::applyFilters('jsInitVariables', $jsData);
 		frameSwr::_()->addJSVar('coreSwr', 'SWR_DATA', $jsData);

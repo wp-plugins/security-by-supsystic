@@ -40,7 +40,7 @@ class dbSwr {
      */
     static public function query($query) {
         global $wpdb;
-        return ($wpdb->query( self::prepareQuery($query) ) === false ? false : true);
+        return ($wpdb->query( (self::$query = self::prepareQuery($query)) ) === false ? false : true);
     }
     /**
      * Get last insert ID

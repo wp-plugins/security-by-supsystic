@@ -114,7 +114,7 @@
 			</li>
 		</ul>
 		<div id="swrFilesIssuesTblNavShell" class="supsystic-tbl-pagination-shell"></div>
-		<?php echo htmlSwr::selectbox('search_types', array('options' => $this->typesForSelect, 'attrs' => 'id="swrFilesIssuesTypeSel" onchange="swrFilesIssueTypeSelChange();" class="supsystic-no-customize"', 'value' => $this->typeSelected))?>
+		<?php echo htmlSwr::selectbox('search_types', array('options' => $this->typesForSelect, 'attrs' => 'id="swrFilesIssuesTypeSel" onchange="swrFilesIssueTypeSelChange();" class="supsystic-no-customize"'))?>
 		<div style="clear: both;"></div>
 		<hr />
 		

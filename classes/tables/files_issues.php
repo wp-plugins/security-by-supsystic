@@ -3,7 +3,7 @@ class tableFiles_issuesSwr extends tableSwr {
     public function __construct() {
         $this->_table = '@__files_issues';
         $this->_id = 'id';
-        $this->_alias = 'toe_files_issues';
+        $this->_alias = 'swr_files_issues';
         $this->_addField('id', 'text', 'int')
 				->_addField('filepathMd5', 'text', 'varchar')
 				->_addField('filepath', 'text', 'varchar')

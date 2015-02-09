@@ -109,7 +109,9 @@ class optionsSwr extends moduleSwr {
 		return $this->_options;
 	}
 	public function sortOptsClb($a, $b) {
-		if(isset($a['weight']) && !isset($b['weight'])) {
+		if(!isset($a['weight']) && !isset($b['weight'])) {
+			return 0;
+		} elseif(isset($a['weight']) && !isset($b['weight'])) {
 			return -1;
 		} elseif(!isset($a['weight']) && isset($b['weight'])) {
 			return 1;

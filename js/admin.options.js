@@ -32,29 +32,6 @@ jQuery(document).ready(function(){
 			});
 		}
 	}, 1000);
-
-	jQuery('.toeRemovePlugActivationNoticeSwr').click(function(){
-		jQuery(this).parents('.info_box:first').animateRemoveSwr();
-		return false;
-	});
-	if(window.location && window.location.href && window.location.href.indexOf('plugins.php')) {
-		if(SWR_DATA.allCheckRegPlugs && typeof(SWR_DATA.allCheckRegPlugs) == 'object') {
-			for(var plugName in SWR_DATA.allCheckRegPlugs) {
-				var plugRow = jQuery('#'+ plugName.toLowerCase())
-				,	updateMsgRow = plugRow.next('.plugin-update-tr');
-				if(plugRow.size() && updateMsgRow.find('.update-message').size()) {
-					updateMsgRow.find('.update-message').find('a').each(function(){
-						if(jQuery(this).html() == 'update now') {
-							jQuery(this).click(function(){
-								toeShowModuleActivationPopupSwr( plugName, 'activateUpdate', jQuery(this).attr('href') );
-								return false;
-							});
-						}
-					});
-				}
-			}
-		}
-	}
 	if(jQuery('.swrInputsWithDescrForm').size()) {
 		jQuery('.swrInputsWithDescrForm').find('input[type=checkbox][data-optkey]').change(function(){
 			var optKey = jQuery(this).data('optkey')
@@ -82,20 +59,14 @@ jQuery(document).ready(function(){
 	swrInitStickyItem();
 	swrInitCustomCheckRadio();
 	//swrInitCustomSelect();
+	// If there are only one panel for whole page - let's make it's height equals to navigation sidebar height
+	if(jQuery('.supsystic-item.supsystic-panel').size() == 1) {
+		var fullPanelHeight = jQuery('.supsystic-navigation:first').height() - (jQuery('.supsystic-item.supsystic-panel').offset().top - jQuery('.supsystic-navigation:first').offset().top);
+		jQuery('.supsystic-item.supsystic-panel').css({
+			'min-height': fullPanelHeight
+		}).attr('data-dev-hint', 'height is calculated in admin.options.js');
+	}
 });
-function toeShowModuleActivationPopupSwr(plugName, action, goto) {
-	action = action ? action : 'activatePlugin';
-	goto = goto ? goto : '';
-	jQuery('#toeModActivationPopupFormSwr').find('input[name=plugName]').val(plugName);
-	jQuery('#toeModActivationPopupFormSwr').find('input[name=action]').val(action);
-	jQuery('#toeModActivationPopupFormSwr').find('input[name=goto]').val(goto);
-	
-	tb_show(toeLangSwr('Activate plugin'), '#TB_inline?width=710&height=220&inlineId=toeModActivationPopupShellSwr', false);
-	var popupWidth = jQuery('#TB_ajaxContent').width()
-	,	docWidth = jQuery(document).width();
-	// Here I tried to fix usual worswress popup displace to right side
-	jQuery('#TB_window').css({'left': Math.round((docWidth - popupWidth)/2)+ 'px', 'margin-left': '0'});
-}
 function changeAdminFormSwr(formId) {
 	if(jQuery.inArray(formId, swrAdminFormChanged) == -1)
 		swrAdminFormChanged.push(formId);

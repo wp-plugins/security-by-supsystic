@@ -3,7 +3,7 @@
  * Plugin Name: Security by Supsystic
  * Plugin URI: http://supsystic.com
  * Description: Secure website and defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist and more functions
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: supsystic.com
  * Author URI: http://supsystic.com
  **/

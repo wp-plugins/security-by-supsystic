@@ -62,19 +62,23 @@ class statisticsModelSwr extends modelSwr {
 				->orderBy('ip DESC')
 				->get('COUNT(*) AS total_requests, ip', $d, '', 'row');
 	}
-	public function clear($tab) {
-		$condition = array();
-		switch($tab) {
-			case 'login':
-				$condition = array('additionalCondition' => 'type IN ('
-					. $this->getModule()->getTypeId('login')
-					. ', '. $this->getModule()->getTypeId('login_submit')
-					. ', '. $this->getModule()->getTypeId('login_error'). ')');
-				break;
-			case '404':
-				$condition = array('type' => $this->getModule()->getTypeId('404'));
-				break;
+	public function clear($tab = '') {
+		if($tab == 'detailed_login') {
+			return $this->getModule()->getModel('detailed_login_stat')->clear();
+		} else {
+			$condition = array();
+			switch($tab) {
+				case 'login':
+					$condition = array('additionalCondition' => 'type IN ('
+						. $this->getModule()->getTypeId('login')
+						. ', '. $this->getModule()->getTypeId('login_submit')
+						. ', '. $this->getModule()->getTypeId('login_error'). ')');
+					break;
+				case '404':
+					$condition = array('type' => $this->getModule()->getTypeId('404'));
+					break;
+			}
+			return frameSwr::_()->getTable('statistics')->delete($condition);
 		}
-		return frameSwr::_()->getTable('statistics')->delete($condition);
 	}
 }

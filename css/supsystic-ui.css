@@ -4,6 +4,11 @@
 }
 .supsystic-plugin a {
 	color: #4ae8ea;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.supsystic-plugin legend a {
+	color: #000;
 }
 .supsystic-plugin .supsystic-content {
     -moz-box-sizing: border-box;
@@ -403,15 +408,28 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 	border: 1px solid #000 !important;
 	line-height: 31px;
 }
+.supsystic-plugin .wp-media-buttons .button,
+.supsystic-plugin .wp-media-buttons .button-primary,
+.supsystic-plugin .button.button-sup-small,
+.supsystic-plugin .button-primary.button-sup-small {
+	height: 30px;
+	line-height: 28px;
+}
 .supsystic-plugin .button.hover,
 .supsystic-plugin .button:hover,
 .supsystic-plugin .button.focus,
 .supsystic-plugin .button:focus,
+.supsystic-plugin .button-primary.hover,
+.supsystic-plugin .button-primary:hover,
+.supsystic-plugin .button-primary.focus,
+.supsystic-plugin .button-primary:focus,
 .ui-button.ui-state-hover,
 .ui-button:hover, 
 .ui-button:focus {
 	background: #4ae8ea !important;
 	border-color: #4ae8ea !important;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 .supsystic-plugin .button[disabled],
 .supsystic-plugin .button:disabled,
@@ -425,7 +443,8 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 	background-color: transparent !important;
 }
 /*tooltip*/
-.supsystic-plugin .fa-question.supsystic-tooltip {
+.supsystic-plugin .fa-question.supsystic-tooltip,
+.supsystic-plugin .fa-question.supsystic-tooltip-bottom {
 	border: 1px solid #28282a;
 	border-radius: 50%;
 	margin-top: 1px;
@@ -438,7 +457,7 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 .supsystic-sticky-active {
     position: fixed !important;
     /*top: 32px;*/
-    z-index: 9998;
+    z-index: 999;
 }
 .supsystic-sticky-active.supsystic-sticky-active-bordered {
 	border-bottom: 2px solid #ddd !important;
@@ -552,4 +571,43 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 .chosen-container, .chosen-container div {
 	overflow: auto !important;
 	height: auto !important;
+}
+/*fieldsets*/
+.supsystic-plugin fieldset {
+	border: 1px solid #000;
+	padding: 5px;
+}
+/*chosen selects*/
+.supsystic-plugin .chosen-container-multi .chosen-choices li.search-choice {
+	background-image: none;
+	background-color: transparent;
+	border: 1px solid #000;
+	border-radius: 0;
+}
+.supsystic-plugin .chosen-container-active .chosen-choices {
+	border-color: #4ae8ea;
+}
+.supsystic-plugin .chosen-container.chosen-container-multi {
+	min-width: 300px;	/*As if select is hidden on chosen init action - it will be with width: 0 - and this is really bad*/
+}
+/*back to top*/
+#ppsPopupGoToTop {
+	position: fixed;
+	z-index: 1000;
+	text-align: center;
+	bottom: 20px;
+	right: 80px;
+	display: none;
+}
+#ppsPopupGoToTopBtn,
+#ppsPopupGoToTopBtn:hover,
+#ppsPopupGoToTopBtn:active {
+	color: #000;
+	text-decoration: none;
+}
+/*additional styles*/
+.ppsOptLabel {
+	font-weight: bold;
+	display: block;
+	clear: both;
 }

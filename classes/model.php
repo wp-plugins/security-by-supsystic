@@ -149,11 +149,45 @@ abstract class modelSwr extends baseObjectSwr {
 			$this->pushError(__('Invalid ID', SWR_LANG_CODE));
 		return false;
 	}
-	public function clear() {
+	public function clear($condition = '') {
 		if(frameSwr::_()->getTable( $this->_tbl )->delete()) {
 			return true;
 		} else 
 			$this->pushError (__('Database error detected', SWR_LANG_CODE));
 		return false;
+	}
+	public function getById($id) {
+		$data = $this->setWhere(array($this->_idField => $id))->getFromTbl();
+		return empty($data) ? false : array_shift($data);
+	}
+	public function insert($data) {
+		$data = $this->_dataSave($data, false);
+		$id = frameSwr::_()->getTable( $this->_tbl )->insert( $data );
+		if($id) {
+			return $id;
+		}
+		$this->pushError(frameSwr::_()->getTable( $this->_tbl )->getErrors());
+		return false;
+	}
+	public function updateById($data, $id = 0) {
+		if(!$id) {
+			$id = isset($data[ $this->_idField ]) ? (int) $data[ $this->_idField ] : 0;
+		}
+		if($id) {
+			return $this->update($data, array($this->_idField => $id));
+		} else
+			$this->pushError(__('Empty or invalid ID', SWR_LANG_CODE));
+		return false;
+	}
+	public function update($data, $where) {
+		$data = $this->_dataSave($data, true);
+		if(frameSwr::_()->getTable( $this->_tbl )->update( $data, $where )) {
+			return true;
+		}
+		$this->pushError(frameSwr::_()->getTable( $this->_tbl )->getErrors());
+		return false;
+	}
+	protected function _dataSave($data, $update = false) {
+		return $data;
 	}
 }

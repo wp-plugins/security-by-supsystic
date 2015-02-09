@@ -53,6 +53,12 @@ class statisticsSwr extends moduleSwr {
 			$currentType = is_wp_error($user) ? $this->_types['login_error']['id'] : $this->_types['login_submit']['id'];
 			$this->getModel()->updateType($this->_lastStatId, $currentType);
 		}
+		if($user && !is_wp_error($user) && is_super_admin( $user->ID )) {
+			$this->getModel('detailed_login_stat')->insert(array(
+				'uid' => $user->ID,
+				'ip' => utilsSwr::getIP(),
+			));
+		}
 		return $redirect_to;
 	}
 	public function getTypes() {
@@ -74,6 +80,7 @@ class statisticsSwr extends moduleSwr {
 				'all' => array('label' => __('All site views', SWR_LANG_CODE)),
 				'404' => array('label' => __('404 page', SWR_LANG_CODE)),
 				'login' => array('label' => __('Login page', SWR_LANG_CODE)),
+				'detailed_login' => array('label' => __('Admins Login', SWR_LANG_CODE)),
 			);
 			foreach($this->_statTabs as $k => $v) {
 				$this->_statTabs[ $k ]['url'] = $statTabUrl. '&stats_tab='. $k;

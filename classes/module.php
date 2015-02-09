@@ -24,7 +24,6 @@ abstract class moduleSwr extends baseObjectSwr {
 		$this->setType($d['type_name']);
 		$this->setCode($d['code']);
 		$this->setLabel($d['label']);
-		//$this->setParams($d['params']);
 		$this->_setID($d['id']);
 		if(isset($d['ex_plug_dir']) && !empty($d['ex_plug_dir'])) {
 			$this->isExternal(true);
@@ -192,40 +191,14 @@ abstract class moduleSwr extends baseObjectSwr {
 	public function getView($viewName = '') {
 		return $this->getController()->getView($viewName);
 	}
-	/*public function setParams($params) {
-		if(!is_array($params)) {
-			if(empty($params))
-				$params = array();
-			else {
-				$params = json_decode ($params);
-			}
-		}
-		$this->_params = $params;
-	}*/
-	/*public function getParams($key = NULL) {
-		if(is_null($key))
-			return $this->_params;
-		else if(is_numeric($key) && isset($this->_params[ $key ])) {
-			return $this->_params[ $key ];
-		} else {
-			foreach($this->_params as $p) {
-				if(isset($p->$key))
-					return $p->$key;
-			}
-			return false;
-		}
-	}*/
-	/**
-	 * Retrive one parameter using it's key, alias for getParams() method
-	 */
-	/*public function getParam($key) {
-		return $this->getParams($key);
-	}*/
 	public function install() {
 
 	}
 	public function uninstall() {
 
+	}
+	public function activate() {
+		
 	}
 	/**
 	 * Returns the available tabs

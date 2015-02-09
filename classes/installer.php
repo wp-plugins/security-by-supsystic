@@ -161,6 +161,18 @@ class installerSwr {
 				PRIMARY KEY (`id`)
 			  ) DEFAULT CHARSET=utf8;"));
 		}
+		/**
+		 * Detailed login Statistics
+		 */
+		if (!dbSwr::exist("@__detailed_login_stat")) {
+			  dbDelta(dbSwr::prepareQuery("CREATE TABLE `@__detailed_login_stat` (
+				`id` int(11) NOT NULL AUTO_INCREMENT,
+				`uid` int(11) NOT NULL,
+				`ip` varchar(16) NOT NULL,
+				`date_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+				PRIMARY KEY (`id`)
+			  ) DEFAULT CHARSET=utf8;"));
+		}
 		installerDbUpdaterSwr::runUpdate();
 		if($current_version && !self::$_firstTimeActivated) {
 			self::setUsed();
@@ -183,16 +195,16 @@ class installerSwr {
 		$wpdb->query("DROP TABLE IF EXISTS `".$wpPrefix.SWR_DB_PREF."modules_type`");
 		$wpdb->query("DROP TABLE IF EXISTS `".$wpPrefix.SWR_DB_PREF."usage_stat`");
 		$wpdb->query("DROP TABLE IF EXISTS `".$wpPrefix.SWR_DB_PREF."countries`");
-		delete_option($wpPrefix. 'db_version');
-		delete_option($wpPrefix. 'db_installed');
+		delete_option($wpPrefix. SWR_DB_PREF. 'db_version');
+		delete_option($wpPrefix. SWR_DB_PREF. 'db_installed');
 	}
 	static public function update() {
 		global $wpdb;
 		$wpPrefix = $wpdb->prefix; /* add to 0.0.3 Versiom */
-		$currentVersion = get_option($wpPrefix. 'db_version', 0);
+		$currentVersion = get_option($wpPrefix. SWR_DB_PREF. 'db_version', 0);
 		if(!$currentVersion || version_compare(SWR_VERSION, $currentVersion, '>')) {
 			self::init();
-			update_option($wpPrefix. 'db_version', SWR_VERSION);
+			update_option($wpPrefix. SWR_DB_PREF. 'db_version', SWR_VERSION);
 		}
 	}
 	private function _insertCountries() {
