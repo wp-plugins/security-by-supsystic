@@ -110,60 +110,62 @@ function swrInitStickyItem() {
 		,	footerHeight = footer && footer.size() ? footer.height() : 0
 		,	docHeight = jQuery(document).height();
 		for(var i = 0; i < stickiItemsSelectors.length; i++) {
-			var element = jQuery(stickiItemsSelectors[ i ]);
-			if(element && element.size()) {
-				var scrollMinPos = element.offset().top
-				,	prevScrollMinPos = parseInt(element.data('scrollMinPos'))
-				,	useNextElementPadding = toeInArray(stickiItemsSelectors[ i ], elementsUsePaddingNext) !== -1;
-				if(wndScrollTop > scrollMinPos && !element.hasClass('supsystic-sticky-active')) {
-					element.addClass('supsystic-sticky-active').data('scrollMinPos', scrollMinPos).css({
-						'top': wpTollbarHeight
-					});
-					if(useNextElementPadding) {
-						element.addClass('supsystic-sticky-active-bordered');
-						var nextElement = element.next();
-						if(nextElement && nextElement.size()) {
-							nextElement.data('prevPaddingTop', nextElement.css('padding-top'));
-							nextElement.css({
-								'padding-top': element.height()
-							});
+			jQuery(stickiItemsSelectors[ i ]).each(function(){
+				var element = jQuery(this);
+				if(element && element.size()) {
+					var scrollMinPos = element.offset().top
+					,	prevScrollMinPos = parseInt(element.data('scrollMinPos'))
+					,	useNextElementPadding = toeInArray(stickiItemsSelectors[ i ], elementsUsePaddingNext) !== -1;
+					if(wndScrollTop > scrollMinPos && !element.hasClass('supsystic-sticky-active')) {
+						element.addClass('supsystic-sticky-active').data('scrollMinPos', scrollMinPos).css({
+							'top': wpTollbarHeight
+						});
+						if(useNextElementPadding) {
+							element.addClass('supsystic-sticky-active-bordered');
+							var nextElement = element.next();
+							if(nextElement && nextElement.size()) {
+								nextElement.data('prevPaddingTop', nextElement.css('padding-top'));
+								nextElement.css({
+									'padding-top': element.height()
+								});
+							}
 						}
-					}
-				} else if(!isNaN(prevScrollMinPos) && wndScrollTop <= prevScrollMinPos) {
-					element.removeClass('supsystic-sticky-active').data('scrollMinPos', 0).css({
-						'top': 0
-					});
-					if(useNextElementPadding) {
-						element.removeClass('supsystic-sticky-active-bordered');
-						var nextElement = element.next();
-						if(nextElement && nextElement.size()) {
-							var nextPrevPaddingTop = parseInt(nextElement.data('prevPaddingTop'));
-							if(isNaN(nextPrevPaddingTop))
-								nextPrevPaddingTop = 0;
-							nextElement.css({
-								'padding-top': nextPrevPaddingTop
-							});
+					} else if(!isNaN(prevScrollMinPos) && wndScrollTop <= prevScrollMinPos) {
+						element.removeClass('supsystic-sticky-active').data('scrollMinPos', 0).css({
+							'top': 0
+						});
+						if(useNextElementPadding) {
+							element.removeClass('supsystic-sticky-active-bordered');
+							var nextElement = element.next();
+							if(nextElement && nextElement.size()) {
+								var nextPrevPaddingTop = parseInt(nextElement.data('prevPaddingTop'));
+								if(isNaN(nextPrevPaddingTop))
+									nextPrevPaddingTop = 0;
+								nextElement.css({
+									'padding-top': nextPrevPaddingTop
+								});
+							}
 						}
-					}
-				} else {
-					if(element.hasClass('supsystic-sticky-active') && footerHeight) {
-						var elementHeight = element.height()
-						,	heightCorrection = 32
-						,	topDiff = docHeight - footerHeight - (wndScrollTop + elementHeight + heightCorrection);
-						//console.log(topDiff);
-						if(topDiff < 0) {
-							//console.log(topDiff, elementTop + topDiff);
-							element.css({
-								'top': wpTollbarHeight + topDiff
-							});
-						} else {
-							element.css({
-								'top': wpTollbarHeight
-							});
+					} else {
+						if(element.hasClass('supsystic-sticky-active') && footerHeight) {
+							var elementHeight = element.height()
+							,	heightCorrection = 32
+							,	topDiff = docHeight - footerHeight - (wndScrollTop + elementHeight + heightCorrection);
+							//console.log(topDiff);
+							if(topDiff < 0) {
+								//console.log(topDiff, elementTop + topDiff);
+								element.css({
+									'top': wpTollbarHeight + topDiff
+								});
+							} else {
+								element.css({
+									'top': wpTollbarHeight
+								});
+							}
 						}
 					}
 				}
-			}
+			});
 		}
 	});
 }

@@ -17,7 +17,6 @@ class modulesModelSwr extends modelSwr {
                 ->innerJoin(frameSwr::_()->getTable('modules_type'), 'type_id')
                 ->getAll(frameSwr::_()->getTable('modules')->alias().'.*, '. frameSwr::_()->getTable('modules_type')->alias(). '.label as type');
         }
-        parent::get($d);
     }
     public function put($d = array()) {
         $res = new responseSwr();
@@ -52,7 +51,6 @@ class modulesModelSwr extends modelSwr {
         } else {
             $res->errors[] = __('Error module ID', SWR_LANG_CODE);
         }
-        parent::put($d);
         return $res;
     }
     protected function _getIDFromReq($d = array()) {

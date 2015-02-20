@@ -1,4 +1,3 @@
-
 <?php
 class tableDetailed_login_statSwr extends tableSwr {
     public function __construct() {

@@ -338,7 +338,7 @@ abstract class tableSwr {
             foreach($data as $k => $v) {
                 if(array_key_exists($k, $this->_fields) || $k == $this->_id) {
                     $val = $v;
-                    if($this->_fields[$k]->adapt['dbTo']) 
+                    if(isset($this->_fields[$k]) && $this->_fields[$k]->adapt['dbTo']) 
                         $val = fieldAdapterSwr::_($val, $this->_fields[$k]->adapt['dbTo'], fieldAdapterSwr::DB);
                     if($validate) {
                         if (is_object($this->_fields[$k])) {

@@ -2,8 +2,8 @@
 Contributors: supsystic.com
 Donate link: http://supsystic.com
 Tags: security, wordpress security, wordpress security plugin, security plugin, anti virus, antivirus, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, google safe browsing, hack, hackers, hacking, heart bleed, heartbleed, heartbleed vulnerability, htaccess, HTTP log, infrastructure security, injection, lock, log, logging, login, login alerts, login security, malware, maximum login security, openssl vulnerability, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, reverse proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, speed, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
-Tested up to: 4.1
-Stable tag: 1.0.6
+Tested up to: 4.1.1
+Stable tag: 1.0.7
 
 Defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist, Country blocking, captcha on login and more
 
@@ -73,6 +73,11 @@ NOTE: Dont forget to using backup as the one of the most effective way to defenc
 1. [Security by Supsystic](http://supsystic.com "WordPress Security Plugin") - secure alerts and notifications page
 
 == Changelog ==
+
+= 1.0.7 / 20.02.2015 =
+ * Fix some issues in admin area for DEBUG mode enabled
+ * Some fixes for admin sticky bars
+ * Additional core code improvements
 
 = 1.0.6 =
  * Added admin login statistics (IP, User ID, Email, Date)
