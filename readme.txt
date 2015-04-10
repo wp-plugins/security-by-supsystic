@@ -1,7 +1,7 @@
 === Security by Supsystic ===
 Contributors: supsystic.com
 Donate link: http://supsystic.com
-Tags: security, wordpress security, wordpress security plugin, security plugin, anti virus, antivirus, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, google safe browsing, hack, hackers, hacking, heart bleed, heartbleed, heartbleed vulnerability, htaccess, HTTP log, infrastructure security, injection, lock, log, logging, login, login alerts, login security, malware, maximum login security, openssl vulnerability, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, reverse proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, speed, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
+Tags: security, wordpress security, security plugin, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, hack, heart bleed, htaccess, HTTP log, infrastructure security, injection, lock, log, login alerts, login security, malware, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
 Tested up to: 4.1.1
 Stable tag: 1.0.7
 
@@ -21,6 +21,10 @@ The ultimate security of your website is obtained through a combination of featu
 * Black Lists
 * Hide WordPress option
 * Logs and Statistics
+
+= Video Tutorial How to Secure WordPress website =
+
+[youtube http://www.youtube.com/watch?v=3JISJD47D0g]
 
 = Login Security =
 
@@ -46,6 +50,7 @@ You can easily avoid an attack by disguising the fact that your CMS is Wordpress
 
 Statistic analyzes various website requests and helps determine those that represent potential security danger to your site. For example, requests that are aimed for system vulnerability or have higher frequency.
 
+
 == Installation ==
 
 = First time Security by Supsystic user =
@@ -64,13 +69,59 @@ It is also possible to monitor and analyze information, that may protect your we
 5. Paste the plug-ins folder in the folder
 6. Go to admin panel => open item "Plugins" => activate the plugin 
 
-
-
 NOTE: Dont forget to using backup as the one of the most effective way to defence your website
 
 == Screenshots ==
 
 1. [Security by Supsystic](http://supsystic.com "WordPress Security Plugin") - secure alerts and notifications page
+
+== Other Notes ==
+
+= Security by Supsystic Features and Security Settings =
+ 
+Security by Supsystic implies one-click setup method instead of breaking up options and settings into multiple separate different options and settings. One-click means figurative not literal usage, described in the concept meaning several tasks being performed through one button click. Security Modes setup takes only four clicks to perform website maximum safety established by the complex set of the Security by Supsystic security features and codes. Security Supsystic Custom Code feature allows to perform:
+
+* customization,
+* whitelisting,
+* adding Security by Supsystic Custom Code,
+* adding other personal custom .htaccess code
+
+= htaccess Core Website Security (Security/Firewalls) =
+
+WordPress Website Security Protection is performed by means of Security by Supsystic method to shield the website from numerous hacking attempts. The .htaccess security filters developed for the Security by Supsystic are designed especially to match various ill-natured hacking attacks to shield the website working options and server resources from negative impact as in "Action Approach".
+
+= Login Security & Monitoring Website Security (Security/Monitoring) =
+
+There are Log All User Account Logins, Log Only User Account Lockouts, Brute Force Login Security Protection. There are five various options for e-mail alerting depending on the occasion.
+
+= DB Backup: Database Backup Website Security (Security/Backup) = 
+
+Data Base Backup options and settings as well as default setup are automatically performed during upgrades and up-to-dated installations. There are several Data Base Backup variations (Backup zipped files are e-mailed):
+
+* manual backup,
+* scheduled backup,
+* selective database table backup,
+* full database backup.
+
+= Security by Supsystic is Website Performance Optimized (Performance/Optimization) =
+
+Security by Supsystic is website performance optimizer and it does not do the following:
+1.     abuse the WordPress Database by making excessive MySQL Queries,
+2.      store excessive and non-essential data in the WordPress Database,
+3.     use excessive Server Memory and Resources.
+4.     use gimmicks / bells / whistles to let the website perform at a good level.
+Security by Supsystic using Speed Boost Cache Bonus Code may speed up and in a way improve the website performance.
+
+= FrontEnd/BackEnd Maintenance Mode (Security/Development) =
+
+It has a website visitor Countdown Timer; when it has counted down to a zero an e-mail will be sent with a corresponding notification. The new Security by Supsystic Maintenance Mode consists of twenty background images and fifteen center images. The switch between the two modes is performed very easy and quick.
+
+FrontEnd Maintenance mode - is primarily designed for development and maintenance purposes
+BackEnd Maintenance Mode - is technically a security feature enabling BackEnd Maintenance Mode to deny access to the /wp-admin folder/WP Dashboard by IP address.
+
+= The .htaccess (distributed Server configuration files) Website Security =
+
+The .htaccess files are to be the first processed before any other codes on the website, meaning that any hacker menacing scripts are to be intercept and stopped by the Security by Supsystic .htaccess files/Firewalls (specified for the Apache Linux Servers) before they have a chance to get to the php code in the WordPress.
 
 == Changelog ==
 
