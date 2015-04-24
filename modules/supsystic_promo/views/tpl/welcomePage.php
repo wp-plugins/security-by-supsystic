@@ -113,7 +113,7 @@ jQuery(document).ready(function(){
 
 			<h2><?php _e('Video tutorial', SWR_LANG_CODE)?></h2>
 			<div class="video-wrapper">
-				<iframe width="640" height="360" src="//www.youtube.com/watch?v=XCg8uFx6Ycs" frameborder="0" allowfullscreen></iframe>
+				<iframe width="640" height="360" src="//www.youtube.com/watch?v=3JISJD47D0g" frameborder="0" allowfullscreen></iframe>
 			</div>
 			<div class="clear"></div>
 

@@ -102,12 +102,12 @@
 									<?php echo htmlSwr::checkboxHiddenVal('opt_values[admin_pass_change_auto]', array('value' => $this->options['admin_pass_change_auto']['value']));?>
 								</label>
 								<?php break;
-								case 'hide_login_page_enb': ?>
-								<label>
-									<?php _e('Change login slug (default wp-login.php) to', SWR_LANG_CODE)?>
-									<?php echo htmlSwr::text('opt_values[hide_login_page_slug]', array('value' => $this->options['hide_login_page_slug']['value']));?>
-								</label>.
-								<?php _e('Allowed characters are a-z, 0-9, - and _', SWR_LANG_CODE)?>
+								case 'hide_admin_area_enb': ?>
+									<label>
+										<?php _e('Change wp-admin slug (default is www.yoursite.com/wp-admin) to', SWR_LANG_CODE)?>
+										<?php echo htmlSwr::text('opt_values[hide_admin_area_slug]', array('value' => $this->options['hide_admin_area_slug']['value']));?>
+									</label>.
+									<?php _e('Allowed characters are a-z and 0-9', SWR_LANG_CODE)?>
 								<?php break;
 							}?>
 							<?php

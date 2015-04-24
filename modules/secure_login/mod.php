@@ -55,8 +55,8 @@ class secure_loginSwr extends moduleSwr {
 				// enb == enable
 				'hide_login_errors_enb' => array('label' => __('Hide login error messages', SWR_LANG_CODE), 'weight' => 20, 'html' => 'checkboxHiddenVal', 'desc' => __('Will not display errors on login form if login was incorrect.', SWR_LANG_CODE)),
 				// enb == enable
-				'hide_login_page_enb' => array('label' => __('Hide login page', SWR_LANG_CODE), 'weight' => 30, 'html' => 'checkboxHiddenVal', 'htaccessChange' => true, 'desc' => __('The attacker will not know the address of the page to log in to your site - this will reduce the risk of breaking of site.', SWR_LANG_CODE)),
-				'hide_login_page_slug' => array('label' => __('New login slug', SWR_LANG_CODE), 'def' => ''),
+				'hide_admin_area_enb' => array('label' => __('Hide admin area', SWR_LANG_CODE), 'weight' => 30, 'html' => 'checkboxHiddenVal', 'htaccessChange' => true, 'desc' => __('Hide wp-admin and all of its files. The attacker will not know the address of the page to log in to your site - this will reduce the risk of breaking of site.', SWR_LANG_CODE)),
+				'hide_admin_area_slug' => array('label' => __('New admin area slug', SWR_LANG_CODE), 'def' => ''),
 			),
 		);
 		return $opts;

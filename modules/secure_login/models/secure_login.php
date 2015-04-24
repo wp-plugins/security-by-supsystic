@@ -57,52 +57,57 @@ class secure_loginModelSwr extends modelSwr {
 		} elseif($prevHtaccessPass && !$currHtaccessPass) {	// Pass disabled
 			$this->removeHtaccess_htaccess_passwd_enable();
 		}
-		// hide login page changed
-		$prevOpt = $prevOptsModel->get('hide_login_page_enb');
-		$currOpt = $optsModel->get('hide_login_page_enb');
-		if($currOpt && !$prevOpt) {	// Pass enabled
-			$newSlug = $optsModel->get('hide_login_page_slug');
+		// hide admin area option changed
+		$prevOpt = $prevOptsModel->get('hide_admin_area_enb');
+		$currOpt = $optsModel->get('hide_admin_area_enb');
+		if($currOpt && !$prevOpt) {	// Hide wp-admin enabled
+			$newSlug = $optsModel->get('hide_admin_area_slug');
 			if(empty($newSlug)) {
-				$this->pushError(__('Enter new login slug', SWR_LANG_CODE), 'opt_values[hide_login_page_slug]');
-			} elseif(!$this->checkLoginSlug($newSlug)) {
-				$this->pushError(__('New login slug is invalid', SWR_LANG_CODE), 'opt_values[hide_login_page_slug]');
+				$this->pushError(__('Enter new wp-admin slug', SWR_LANG_CODE), 'opt_values[hide_admin_area_slug]');
+			} elseif(!$this->checkSlug($newSlug)) {
+				$this->pushError(__('New wp-admin slug is invalid', SWR_LANG_CODE), 'opt_values[hide_admin_area_slug]');
 			} else {
-				$this->updateHtaccess_hide_login_page_enb( $newSlug );
+				$this->updateHtaccess_hide_admin_area_enb( $newSlug );
 			}
-		} elseif($prevOpt && !$currOpt) {	// Pass disabled
-			$this->removeHtaccess_hide_login_page_enb();
+		} elseif($prevOpt && !$currOpt) {	// Hide admin area disabled
+			$this->removeHtaccess_hide_admin_area_enb();
 		}
 		
 		return !$this->haveErrors();
 	}
-	public function checkLoginSlug($newSlug) {
-		return preg_match('/^[a-z0-9\-_]+$/i', $newSlug);
+	public function checkSlug($newSlug) {
+		return preg_match('/^[a-z0-9]+$/i', $newSlug);
 	}
-	public function updateHtaccess_hide_login_page_enb($newSlug = '') {
+	public function updateHtaccess_hide_admin_area_enb($newSlug = '') {
 		if(empty($newSlug))
-			$newSlug = frameSwr::_()->getModule('options')->get('hide_login_page_slug');
-		// taken from wp-includes/rewrite.php
-		$servUri = parse_url(home_url());
-		if (isset($servUri['path'])) {
-			$servUri = trailingslashit($servUri['path']);
-		} else {
-			$servUri = '/';
-		}
+			$newSlug = frameSwr::_()->getModule('options')->get('hide_admin_area_slug');
 		$rules = array(
 			'<IfModule mod_rewrite.c>',
 			'RewriteEngine On',
-			'RewriteRule ^'. $newSlug. '/?$ '. $servUri. 'wp-login.php [QSA,L]',
-			'RewriteCond %{THE_REQUEST} ^(.*)?wp-login\.php(.*)$',
-			'RewriteCond %{HTTP_REFERER} !^(.*)'. $newSlug. '/?$',
-			'RewriteRule ^(.*)$ - [R=404,L]',
+			'RewriteRule ^'. $newSlug .'/?$ /wp-login.php?cyB759wM7FXd6735Dmsb [R,L]',
+			'RewriteCond %{HTTP_COOKIE} !^.*wordpress_logged_in_.*$',
+			'RewriteRule ^'. $newSlug .'/?$ /wp-login.php?cyB759wM7FXd6735Dmsb&redirect_to=/wp-admin/ [R,L]',
+			'RewriteRule ^'. $newSlug .'/?$ /wp-admin/?cyB759wM7FXd6735Dmsb [R,L]',
+			'RewriteCond %{SCRIPT_FILENAME} !^(.*)admin-ajax\.php',
+			'RewriteCond %{HTTP_REFERER} !^(.*)/wp-admin',
+			'RewriteCond %{HTTP_REFERER} !^(.*)/wp-login\.php',
+			'RewriteCond %{HTTP_REFERER} !^(.*)/'.$newSlug,
+			'RewriteCond %{QUERY_STRING} !^cyB759wM7FXd6735Dmsb',
+			'RewriteCond %{QUERY_STRING} !^action=logout',
+			'RewriteCond %{QUERY_STRING} !^action=rp',
+			'RewriteCond %{QUERY_STRING} !^action=postpass',
+			'RewriteCond %{HTTP_COOKIE} !^.*wordpress_logged_in_.*$',
+			'RewriteRule ^.*wp-admin/?|^.*wp-login\.php - [R=404,L]',
+			'RewriteCond %{QUERY_STRING} ^loggedout=true',
+			'RewriteRule ^.*$ /wp-login.php?cyB759wM7FXd6735Dmsb [R,L]',
 			'</IfModule>',
 		);
-		if(!frameSwr::_()->getModule('htaccess')->savePart('hide_login_page_enb', $rules, false, true)) {
+		if(!frameSwr::_()->getModule('htaccess')->savePart('hide_admin_area_enb', $rules, false, true)) {
 			$this->pushError(frameSwr::_()->getModule('htaccess')->getErrors());
 		}
 	}
-	public function removeHtaccess_hide_login_page_enb() {
-		if(!frameSwr::_()->getModule('htaccess')->removePart('hide_login_page_enb')) {
+	public function removeHtaccess_hide_admin_area_enb() {
+		if(!frameSwr::_()->getModule('htaccess')->removePart('hide_admin_area_enb')) {
 			$this->pushError(frameSwr::_()->getModule('htaccess')->getErrors());
 		}
 	}

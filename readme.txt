@@ -3,7 +3,7 @@ Contributors: supsystic.com
 Donate link: http://supsystic.com
 Tags: security, wordpress security, security plugin, attack, cellphone sign-in, cellphone signin, firewall, firewall security, front-end security, hack, heart bleed, htaccess, HTTP log, infrastructure security, injection, lock, log, login alerts, login security, malware, personal security, phishing, php5-fpm, privacy, private, protect, protection, proxy security, rfi, scrapers, script, secrity, secure, secure login, secure website, security log, SQL Injection, two factor security, two-factor, twofactor, users, virus, vulnerability, web server security, website security, xss, supsystic, 404 detection, ban, ban hacker, hacker, restrict, SQL Injection
 Tested up to: 4.1.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 
 Defence from all attacks with Security by Supsyctic. Firewall, Login Security, Hide WordPress, Blacklist, Country blocking, captcha on login and more
 
@@ -124,6 +124,11 @@ BackEnd Maintenance Mode - is technically a security feature enabling BackEnd Ma
 The .htaccess files are to be the first processed before any other codes on the website, meaning that any hacker menacing scripts are to be intercept and stopped by the Security by Supsystic .htaccess files/Firewalls (specified for the Apache Linux Servers) before they have a chance to get to the php code in the WordPress.
 
 == Changelog ==
+
+= 1.0.8 / 24.04.2015 =
+ * Modified functionality for hiding wp-admin area.
+ * Correct auth url for sms auth
+ * Added video tutorial
 
 = 1.0.7 / 20.02.2015 =
  * Fix some issues in admin area for DEBUG mode enabled

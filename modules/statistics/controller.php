@@ -19,6 +19,7 @@ class statisticsControllerSwr extends controllerSwr {
 						$users[ $v['uid'] ] = get_userdata( $v['uid'] );
 					}
 					$data[ $i ]['email'] = $users[ $v['uid'] ]->user_email;
+					$data[ $i ]['actions'] = $ipInBlackList ? __('IP is In Black List') : '<a href="#" data-ip="'. $data[ $i ]['ip']. '" onclick="addToBlackListTemp(this); return false;">'. _('Add to Temp black list').'</a>';
 				}
 			}
 		}

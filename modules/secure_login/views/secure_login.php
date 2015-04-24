@@ -13,7 +13,6 @@ class secure_loginViewSwr extends viewSwr {
 			$simpleUsersIssues = $this->getModel()->getSimpleUserIssues();
 		}
 		$this->assign('options', $options);
-		$this->assign('breadcrumbs', frameSwr::_()->getModule('admin_nav')->getView()->getBreadcrumbs());
 		$this->assign('blacklistUrl', $blacklistUrl);
 		$this->assign('currentIp', utilsSwr::getIP());
 		$this->assign('simpleAdmins', $simpleAdminsList);

@@ -569,7 +569,7 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 }
 /*custom selects*/
 .chosen-container, .chosen-container div {
-	overflow: auto !important;
+	/*overflow: auto !important;*/
 	height: auto !important;
 }
 /*fieldsets*/
@@ -610,4 +610,8 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 	font-weight: bold;
 	display: block;
 	clear: both;
+}
+.chosen-container-active .chosen-choices li.search-field input[type="text"] {
+	width: auto !important;
+	height: auto !important;
 }
